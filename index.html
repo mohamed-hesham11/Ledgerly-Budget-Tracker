@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ledgerly | Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app-container">
+        <div class="brand-header">
+            <div class="brand-logo">Ledgerly<span class="brand-accent">.</span></div>
+        </div>
+        <header class="dashboard-header card">
+            <h2 class="text-muted">Net Balance</h2>
+            <h1 id="net-balance" class="text-primary">$0.00</h1>
+            <div class="metrics">
+                <div class="metric">
+                    <span class="text-muted">Total Income</span>
+                    <span id="total-income" class="text-income">+$0.00</span>
+                </div>
+                <div class="metric">
+                    <span class="text-muted">Total Expense</span>
+                    <span id="total-expense" class="text-expense">-$0.00</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="transaction-form-container card">
+            <form id="transaction-form">
+                <div class="form-group">
+                    <input type="text" id="desc-input" placeholder="Item Name (e.g., Groceries)" required autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="number" id="amount-input" placeholder="Amount (e.g., 50.00)" step="0.01" min="0.01" required>
+                </div>
+                
+                <div class="segmented-control">
+                    <input type="radio" id="type-expense" name="type" value="expense" checked>
+                    <label for="type-expense">Expense</label>
+                    
+                    <input type="radio" id="type-income" name="type" value="income">
+                    <label for="type-income">Income</label>
+                </div>
+
+                <div class="form-group">
+                    <select id="category-input" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Food & Dining">Food & Dining</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Income/Salary">Income/Salary</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">Add Transaction</button>
+            </form>
+        </section>
+
+        <section class="expense-breakdown card">
+            <h3 class="text-primary">Expense Breakdown</h3>
+            <div class="progress-bar-container" id="expense-bars">
+                </div>
+            <div class="breakdown-legend" id="expense-legend">
+                </div>
+        </section>
+
+        <section class="transaction-ledger card">
+            <h3 class="text-primary">Recent Transactions</h3>
+            <ul id="transaction-list" class="ledger-list">
+                </ul>
+        </section>
+
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
